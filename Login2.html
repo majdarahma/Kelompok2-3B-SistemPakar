@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <title></title>
+        <style class="text/css">
+body{
+    margin: 0;
+    padding: 0;
+    background-image:url('suicide.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family:sans-serif;
+}
+img{
+    position: absolute;
+    width: 100px;
+    border-radius: 50%;
+}
+.loginbox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    width: 350px;
+    height:420px;
+    padding: 80px 40px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,.5);
+}
+.user{
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    top:calc(-100px/2);
+    left:calc(50% - 50px);
+}
+h2{
+    margin:0;
+    padding: 0 0 20px;
+    color:#00cc00;
+    text-shadow:1px 1px 1px #262626;
+    text-align:center;
+    letter-spacing: 1px;
+}
+.loginbox p{
+    margin:0;
+    padding: 0;
+    font-weight: bold;
+    color: #fff
+}
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.loginbox input[type="text"],
+.loginbox input[type="password"]{
+    border:none;
+    border-bottom: 1px solid #fff;
+    background-color: transparent;
+    outline: none;
+    height: 40px;
+    color:#fff;
+    font-size: 16px
+}
+::placeholder{
+    color: rgba(255,255,255,.5)
+}
+.loginbox input[type="submit"]{
+    border:none;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    background:#ff5c33;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: .5s;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.loginbox input[type="submit"]:hover{
+    background:#00cc00;
+    color: #262626
+}
+.loginbox a{
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    opacity: .8
+}
+        </style>
+    </head>
+    <body>
+        <div class="loginbox">
+            <img src="gosen.jpg" class="user">
+            <h2>Login</h2>
+            <form>
+                <p>Username</p>
+                <input type="text" name="" placeholder="Enter Username">
+                <p>Password</p>
+            <input type="password" name="" placeholder="*******">
+            <input type="submit" name="" value="Sign In">
+            <a href="#">Register</a>
+            </form>
+        </div>
+    </body>
+</html>
