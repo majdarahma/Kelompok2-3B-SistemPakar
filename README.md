@@ -1,6 +1,6 @@
 # Kelompok2-3B-SistemPakar
 
-Sistem Pakar Dalam Mendiagnosis Kerusakan Pada Komputer Dengan Metode Forward Chaining
+Sistem Pakar Dalam Mendiagnosis Kerusakan Pada Laptop Dengan Metode Forward Chaining
 
 1.	Hagan Rownlenstino Alexander    1174040
 2.	Kevin Natanael Nainggolan       1174059
