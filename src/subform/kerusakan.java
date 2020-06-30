@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -26,10 +27,16 @@ import javax.swing.event.InternalFrameEvent;
 import javax.swing.event.InternalFrameListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+
 import koneksi.koneksi;
 
-public class Kerusakan extends JInternalFrame {
-  Statement stt;
+public class kerusakan extends JInternalFrame {
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1367866928358010445L;
+
+Statement stt;
   
   ResultSet rss;
   
@@ -48,7 +55,7 @@ public class Kerusakan extends JInternalFrame {
   private JTable tblkerusakan;
   private JTextField txtjenis;
   
-  public Kerusakan() {
+  public kerusakan() {
     initComponents();
     tabelKerusakan();
     loadtabel();
@@ -122,7 +129,7 @@ public class Kerusakan extends JInternalFrame {
     setPreferredSize(new Dimension(535, 510));
     addInternalFrameListener(new InternalFrameListener() {
           public void internalFrameActivated(InternalFrameEvent evt) {
-            Kerusakan.this.formInternalFrameActivated(evt);
+            kerusakan.this.formInternalFrameActivated(evt);
           }
           
           public void internalFrameDeactivated(InternalFrameEvent evt) {}
@@ -142,12 +149,12 @@ public class Kerusakan extends JInternalFrame {
     this.jLabel3.setFont(new Font("Tahoma", 1, 14));
     this.jLabel3.setForeground(new Color(0, 51, 255));
     this.jLabel3.setText("Jenis Permasalahan Kerusakan Notebook");
-    this.tblkerusakan.setModel(new DefaultTableModel(new Object[][] { { null, null }, , { null, null }, , { null, null }, , { null, null },  }, (Object[])new String[] { "ID Permasalahan", "Jenis Permasalahan" }));
+    this.tblkerusakan.setModel(new DefaultTableModel(new Object[][] { {null,null},{null,null},{null,null},{null,null},},(Object[])new String[] { "ID Permasalahan", "Jenis Permasalahan" }));
     this.tblkerusakan.setName("tblkerusakan");
     this.tblkerusakan.setRowHeight(20);
     this.tblkerusakan.addMouseListener(new MouseAdapter() {
           public void mouseClicked(MouseEvent evt) {
-            Kerusakan.this.tblkerusakanMouseClicked(evt);
+            kerusakan.this.tblkerusakanMouseClicked(evt);
           }
         });
     this.jScrollPane1.setViewportView(this.tblkerusakan);
@@ -156,7 +163,7 @@ public class Kerusakan extends JInternalFrame {
     this.btnhapus.setCursor(new Cursor(12));
     this.btnhapus.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent evt) {
-            Kerusakan.this.btnhapusActionPerformed(evt);
+            kerusakan.this.btnhapusActionPerformed(evt);
           }
         });
     this.btnbaru.setIcon(new ImageIcon(getClass().getResource("/gambar/File-New-icon.png")));
@@ -164,7 +171,7 @@ public class Kerusakan extends JInternalFrame {
     this.btnbaru.setCursor(new Cursor(12));
     this.btnbaru.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent evt) {
-            Kerusakan.this.btnbaruActionPerformed(evt);
+            kerusakan.this.btnbaruActionPerformed(evt);
           }
         });
     this.btnubahn.setIcon(new ImageIcon(getClass().getResource("/gambar/Actions-document-edit-icon.png")));
@@ -172,7 +179,7 @@ public class Kerusakan extends JInternalFrame {
     this.btnubahn.setCursor(new Cursor(12));
     this.btnubahn.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent evt) {
-            Kerusakan.this.btnubahnActionPerformed(evt);
+            kerusakan.this.btnubahnActionPerformed(evt);
           }
         });
     this.btnsimpan.setIcon(new ImageIcon(getClass().getResource("/gambar/save-icon.png")));
@@ -181,7 +188,7 @@ public class Kerusakan extends JInternalFrame {
     this.btnsimpan.setEnabled(false);
     this.btnsimpan.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent evt) {
-            Kerusakan.this.btnsimpanActionPerformed(evt);
+            kerusakan.this.btnsimpanActionPerformed(evt);
           }
         });
     this.btnbatal.setIcon(new ImageIcon(getClass().getResource("/gambar/no-icon.png")));
@@ -190,7 +197,7 @@ public class Kerusakan extends JInternalFrame {
     this.btnbatal.setPreferredSize(new Dimension(83, 25));
     this.btnbatal.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent evt) {
-            Kerusakan.this.btnbatalActionPerformed(evt);
+            kerusakan.this.btnbatalActionPerformed(evt);
           }
         });
     GroupLayout layout = new GroupLayout(getContentPane());
