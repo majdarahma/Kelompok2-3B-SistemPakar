@@ -18,6 +18,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
@@ -27,17 +28,11 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 import javax.swing.event.InternalFrameEvent;
 import javax.swing.event.InternalFrameListener;
-
 import koneksi.koneksi;
-import mainform.utama;
+import mainform.Utama;
 
 public class diagnosa extends JInternalFrame {
-  /**
-	 * 
-	 */
-	private static final long serialVersionUID = -2588429819018292273L;
-
-Statement stt;
+  Statement stt;
   
   ResultSet rss;
   
@@ -47,21 +42,21 @@ Statement stt;
   
   String tampung;
   
-  utama utm = new utama();
+  Utama utm = new Utama();
   
   int id;
   
   String type;
   
-  private JComboBox<String> cmb_type;
-  private JComboBox<String> cnma;
+  private JComboBox cmb_type;
+  private JComboBox cnma;
   private JButton jButton1;
   private JButton jButton2;
   private JLabel jLabel1;
   private JLabel jLabel2;
   private JTextField txtpertanyaan;
   
-  public diagnosa(utama utm) {
+  public diagnosa(Utama utm) {
     initComponents();
     this.utm = utm;
     loaddata2();
@@ -80,12 +75,12 @@ Statement stt;
   }
   
   private void initComponents() {
-    this.cnma = new JComboBox<String>();
+    this.cnma = new JComboBox();
     this.txtpertanyaan = new JTextField();
     this.jButton1 = new JButton();
     this.jButton2 = new JButton();
     this.jLabel1 = new JLabel();
-    this.cmb_type = new JComboBox<String>();
+    this.cmb_type = new JComboBox();
     this.jLabel2 = new JLabel();
     setClosable(true);
     setTitle("Proses Diagnosa");
@@ -143,6 +138,7 @@ Statement stt;
           }
         });
     this.txtpertanyaan.setEditable(false);
+    this.jButton1.setIcon(new ImageIcon(getClass().getResource("/gambar/Ok-icon.png")));
     this.jButton1.setText("Ya");
     this.jButton1.setCursor(new Cursor(12));
     this.jButton1.addActionListener(new ActionListener() {
@@ -150,6 +146,7 @@ Statement stt;
             diagnosa.this.jButton1ActionPerformed(evt);
           }
         });
+    this.jButton2.setIcon(new ImageIcon(getClass().getResource("/gambar/no-icon.png")));
     this.jButton2.setText("Tidak");
     this.jButton2.setCursor(new Cursor(12));
     this.jButton2.addActionListener(new ActionListener() {
@@ -159,7 +156,7 @@ Statement stt;
         });
     this.jLabel1.setFont(new Font("Tahoma", 1, 15));
     this.jLabel1.setForeground(new Color(0, 51, 204));
-    this.jLabel1.setText("Perkiraan kerusakan terjadi pada komponen ?");
+    this.jLabel1.setText("Perkiraan kerusakan notebook terjadi pada komponen ?");
     this.cmb_type.setFont(new Font("Tahoma", 0, 18));
     this.cmb_type.setModel(new DefaultComboBoxModel<String>(new String[] { "Pilih" }));
     this.cmb_type.addMouseListener(new MouseAdapter() {
@@ -186,7 +183,7 @@ Statement stt;
         });
     this.jLabel2.setFont(new Font("Tahoma", 1, 15));
     this.jLabel2.setForeground(new Color(0, 51, 204));
-    this.jLabel2.setText("Merk dan Type");
+    this.jLabel2.setText("Merk dan Type Notebook");
     GroupLayout layout = new GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup().addContainerGap(242, 32767).addComponent(this.jButton1).addGap(18, 18, 18).addComponent(this.jButton2).addGap(232, 232, 232)).addGroup(layout.createSequentialGroup().addGap(25, 25, 25).addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addComponent(this.jLabel2).addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 34, 32767).addComponent(this.cmb_type, -2, 362, -2)).addComponent(this.jLabel1).addComponent(this.cnma, 0, 581, 32767).addComponent(this.txtpertanyaan, -1, 581, 32767)).addContainerGap(28, 32767)));

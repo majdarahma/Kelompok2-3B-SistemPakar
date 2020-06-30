@@ -5,7 +5,6 @@ import java.awt.Font;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
 import javax.swing.GroupLayout;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -13,19 +12,13 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
-
 import koneksi.koneksi;
-import mainform.utama;
+import mainform.Utama;
 
 public class hasil extends JInternalFrame {
-  /**
-	 * 
-	 */
-	private static final long serialVersionUID = 7317174146239630520L;
-
-int i = 0;
+  int i = 0;
   
-  utama utm = new utama();
+  Utama utm = new Utama();
   
   diagnosa dg = new diagnosa(this.utm);
   
