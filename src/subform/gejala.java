@@ -15,7 +15,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
@@ -27,11 +26,17 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import koneksi.koneksi;
-import org.netbeans.lib.awtextra.AbsoluteConstraints;
-import org.netbeans.lib.awtextra.AbsoluteLayout;
+import lib.AbsoluteConstrains;
+import lib.AbsoluteLayout;
 
 public class gejala extends JInternalFrame {
-  Statement stt;
+
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2187864816712322465L;
+
+Statement stt;
   
   ResultSet rss;
   
@@ -42,45 +47,26 @@ public class gejala extends JInternalFrame {
   int id;
   
   private JButton btnbaru;
-  
   private JButton btnbatal;
-  
   private JButton btnhapus;
-  
   private JButton btnsimpan;
-  
   private JButton btnubahn;
-  
-  private JComboBox cid;
-  
-  private JComboBox cidya;
-  
-  private JComboBox cmb_merk;
-  
+  private JComboBox<String> cid;
+  private JComboBox<String> cidya;
+  private JComboBox<String> cmb_merk;
   private JLabel jLabel1;
-  
   private JLabel jLabel2;
-  
   private JLabel jLabel3;
-  
   private JLabel jLabel4;
-  
   private JLabel jLabel5;
-  
   private JLabel jLabel6;
-  
   private JScrollPane jScrollPane1;
-  
   private JScrollPane jScrollPane2;
-  
   private JScrollPane jScrollPane3;
-  
   private JTable tbl_solusi;
-  
   private JTable tblgejala;
-  
   private JTable tblkerusakan;
-  
+
   private JTextField txtpertanyaan;
   
   public gejala() {
@@ -107,27 +93,27 @@ public class gejala extends JInternalFrame {
     this.btnubahn = new JButton();
     this.btnsimpan = new JButton();
     this.jLabel5 = new JLabel();
-    this.cid = new JComboBox();
+    this.cid = new JComboBox<String>();
     this.jScrollPane2 = new JScrollPane();
     this.tblkerusakan = new JTable();
     this.jLabel1 = new JLabel();
-    this.cmb_merk = new JComboBox();
+    this.cmb_merk = new JComboBox<String>();
     this.jScrollPane3 = new JScrollPane();
     this.tbl_solusi = new JTable();
     this.jLabel4 = new JLabel();
     this.jLabel6 = new JLabel();
-    this.cidya = new JComboBox();
+    this.cidya = new JComboBox<String>();
     setClosable(true);
     setTitle("Basis Pengetahuan Gejala dan Permasalahan Kerusakan Notebook");
     setPreferredSize(new Dimension(1015, 515));
     getContentPane().setLayout((LayoutManager)new AbsoluteLayout());
     this.jLabel2.setText(" Pertanyaan");
-    getContentPane().add(this.jLabel2, new AbsoluteConstraints(250, 70, -1, -1));
+    getContentPane().add(this.jLabel2, new AbsoluteConstrains(250, 70, -1, -1));
     this.txtpertanyaan.setEnabled(false);
-    getContentPane().add(this.txtpertanyaan, new AbsoluteConstraints(390, 70, 600, -1));
+    getContentPane().add(this.txtpertanyaan, new AbsoluteConstrains(390, 70, 600, -1));
     this.jLabel3.setText(" Solusi Ya");
-    getContentPane().add(this.jLabel3, new AbsoluteConstraints(250, 100, -1, -1));
-    this.tblgejala.setModel(new DefaultTableModel(new Object[][] { { null, null, null, null, null }, , { null, null, null, null, null }, , { null, null, null, null, null }, , { null, null, null, null, null },  }, (Object[])new String[] { "Id Permasalahan", "Id Pertanyaan", "Pertanyaan", "Id Solusi", "Id Pertanyaan" }));
+    getContentPane().add(this.jLabel3, new AbsoluteConstrains(250, 100, -1, -1));
+    this.tblgejala.setModel(new DefaultTableModel(new Object[][] { { null, null, null, null, null },{ null, null, null, null, null },{ null, null, null, null, null },{ null, null, null, null, null },  }, (Object[])new String[] { "Id Permasalahan", "Id Pertanyaan", "Pertanyaan", "Id Solusi", "Id Pertanyaan" }));
     this.tblgejala.setRowHeight(18);
     this.tblgejala.addMouseListener(new MouseAdapter() {
           public void mouseClicked(MouseEvent evt) {
@@ -135,16 +121,14 @@ public class gejala extends JInternalFrame {
           }
         });
     this.jScrollPane1.setViewportView(this.tblgejala);
-    getContentPane().add(this.jScrollPane1, new AbsoluteConstraints(0, 300, 1000, 190));
-    this.btnbaru.setIcon(new ImageIcon(getClass().getResource("/gambar/File-New-icon.png")));
+    getContentPane().add(this.jScrollPane1, new AbsoluteConstrains(0, 300, 1000, 190));
     this.btnbaru.setText("Baru");
     this.btnbaru.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent evt) {
             gejala.this.btnbaruActionPerformed(evt);
           }
         });
-    getContentPane().add(this.btnbaru, new AbsoluteConstraints(10, 20, 80, -1));
-    this.btnbatal.setIcon(new ImageIcon(getClass().getResource("/gambar/no-icon.png")));
+    getContentPane().add(this.btnbaru, new AbsoluteConstrains(10, 20, 80, -1));
     this.btnbatal.setText("Batal");
     this.btnbatal.setCursor(new Cursor(12));
     this.btnbatal.setMaximumSize(new Dimension(83, 25));
@@ -155,24 +139,21 @@ public class gejala extends JInternalFrame {
             gejala.this.btnbatalActionPerformed(evt);
           }
         });
-    getContentPane().add(this.btnbatal, new AbsoluteConstraints(120, 80, -1, 30));
-    this.btnhapus.setIcon(new ImageIcon(getClass().getResource("/gambar/Trash-can-icon.png")));
+    getContentPane().add(this.btnbatal, new AbsoluteConstrains(120, 80, -1, 30));
     this.btnhapus.setText("Hapus");
     this.btnhapus.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent evt) {
             gejala.this.btnhapusActionPerformed(evt);
           }
         });
-    getContentPane().add(this.btnhapus, new AbsoluteConstraints(120, 80, 90, -1));
-    this.btnubahn.setIcon(new ImageIcon(getClass().getResource("/gambar/Actions-document-edit-icon.png")));
+    getContentPane().add(this.btnhapus, new AbsoluteConstrains(120, 80, 90, -1));
     this.btnubahn.setText("Ubah");
     this.btnubahn.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent evt) {
             gejala.this.btnubahnActionPerformed(evt);
           }
         });
-    getContentPane().add(this.btnubahn, new AbsoluteConstraints(120, 20, 90, -1));
-    this.btnsimpan.setIcon(new ImageIcon(getClass().getResource("/gambar/save-icon.png")));
+    getContentPane().add(this.btnubahn, new AbsoluteConstrains(120, 20, 90, -1));
     this.btnsimpan.setText("Simpan");
     this.btnsimpan.setEnabled(false);
     this.btnsimpan.addActionListener(new ActionListener() {
@@ -180,9 +161,9 @@ public class gejala extends JInternalFrame {
             gejala.this.btnsimpanActionPerformed(evt);
           }
         });
-    getContentPane().add(this.btnsimpan, new AbsoluteConstraints(10, 80, -1, -1));
+    getContentPane().add(this.btnsimpan, new AbsoluteConstrains(10, 80, -1, -1));
     this.jLabel5.setText(" Id Permasalahan");
-    getContentPane().add(this.jLabel5, new AbsoluteConstraints(250, 40, -1, -1));
+    getContentPane().add(this.jLabel5, new AbsoluteConstrains(250, 40, -1, -1));
     this.cid.setEnabled(false);
     this.cid.addMouseListener(new MouseAdapter() {
           public void mouseClicked(MouseEvent evt) {
@@ -208,32 +189,32 @@ public class gejala extends JInternalFrame {
             gejala.this.cidKeyPressed(evt);
           }
         });
-    getContentPane().add(this.cid, new AbsoluteConstraints(390, 40, 90, 25));
-    this.tblkerusakan.setModel(new DefaultTableModel(new Object[][] { { null, null }, , { null, null }, , { null, null }, , { null, null },  }, (Object[])new String[] { "Id Permasalahan", "Jenis Permasalahan" }));
+    getContentPane().add(this.cid, new AbsoluteConstrains(390, 40, 90, 25));
+    this.tblkerusakan.setModel(new DefaultTableModel(new Object[][] { { null, null },{ null, null },{ null, null },{ null, null },  }, (Object[])new String[] { "Id Permasalahan", "Jenis Permasalahan" }));
     this.tblkerusakan.setEnabled(false);
     this.tblkerusakan.setRowHeight(18);
     this.jScrollPane2.setViewportView(this.tblkerusakan);
-    getContentPane().add(this.jScrollPane2, new AbsoluteConstraints(600, 140, 400, 160));
+    getContentPane().add(this.jScrollPane2, new AbsoluteConstrains(600, 140, 400, 160));
     this.jLabel1.setText(" Merk & Type Notebook");
-    getContentPane().add(this.jLabel1, new AbsoluteConstraints(250, 10, 140, -1));
+    getContentPane().add(this.jLabel1, new AbsoluteConstrains(250, 10, 140, -1));
     this.cmb_merk.setEnabled(false);
     this.cmb_merk.addItemListener(new ItemListener() {
           public void itemStateChanged(ItemEvent evt) {
             gejala.this.cmb_merkItemStateChanged(evt);
           }
         });
-    getContentPane().add(this.cmb_merk, new AbsoluteConstraints(390, 10, 270, 25));
-    this.tbl_solusi.setModel(new DefaultTableModel(new Object[][] { { null, null }, , { null, null }, , { null, null }, , { null, null },  }, (Object[])new String[] { "Id Solusi", "Solusi" }));
+    getContentPane().add(this.cmb_merk, new AbsoluteConstrains(390, 10, 270, 25));
+    this.tbl_solusi.setModel(new DefaultTableModel(new Object[][] { { null, null },  { null, null },  { null, null },  { null, null },  }, (Object[])new String[] { "Id Solusi", "Solusi" }));
     this.tbl_solusi.setEnabled(false);
     this.tbl_solusi.setRowHeight(18);
     this.jScrollPane3.setViewportView(this.tbl_solusi);
-    getContentPane().add(this.jScrollPane3, new AbsoluteConstraints(0, 140, 580, 160));
+    getContentPane().add(this.jScrollPane3, new AbsoluteConstrains(0, 140, 580, 160));
     this.jLabel4.setText("Solusi");
-    getContentPane().add(this.jLabel4, new AbsoluteConstraints(10, 120, 40, -1));
+    getContentPane().add(this.jLabel4, new AbsoluteConstrains(10, 120, 40, -1));
     this.jLabel6.setText("Permasalahan");
-    getContentPane().add(this.jLabel6, new AbsoluteConstraints(600, 120, -1, -1));
+    getContentPane().add(this.jLabel6, new AbsoluteConstrains(600, 120, -1, -1));
     this.cidya.setEnabled(false);
-    getContentPane().add(this.cidya, new AbsoluteConstraints(390, 100, 90, -1));
+    getContentPane().add(this.cidya, new AbsoluteConstrains(390, 100, 90, -1));
     pack();
   }
   
